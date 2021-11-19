@@ -36,13 +36,19 @@ for i in range(10):
             list = {
                 'code':code, 
                 'invested': cost, 
-                'quanitity':quantity, 
+                'quantity':quantity, 
                 'price_point':price_point,
                 'current_price': current_price,
                 }
             result_list.append(list)
 
     for vs in result_list:
-        print(vs["code"] + " is " + str(vs["current_price"]))
+        up_down = round(vs["current_price"] * vs["quantity"] - vs["invested"],2)
+        if up_down>0:
+            up_down = "+" + str(up_down)
+        else:
+            up_down = str(up_down)
+        s = "You are currently " + up_down + " on " + vs["code"]
+        print(s)
     print("************")
     time.sleep(10)
